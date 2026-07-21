@@ -233,3 +233,28 @@ footer{
         font-size:30px;
     }
 }
+/* ===========================
+   Latest Notices
+=========================== */
+
+.notice-list{
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.notice-list li{
+    background: #f5efff;
+    color: #5a3d8c;
+    margin: 12px 0;
+    padding: 14px;
+    border-radius: 10px;
+    border-left: 5px solid #8E44AD;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.notice-list li:hover{
+    background: #ede0ff;
+    transform: translateX(8px);
+}

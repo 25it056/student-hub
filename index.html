@@ -3,63 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STUDENT-HUB</title>
+    <title>StudentHub</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <header>
-        <h1>
-            StudentHub
-        </h1>
+        <h1>🎓 StudentHub</h1>
         <p>Your Digital Campus Portal</p>
-        
     </header>
+
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">about</a>
-        <a href="register.html">Register</a>
-        <a href="login.html">Login</a>
-        <a href="dashborad.html">Dashborad</a>
-        <a href="event.html">Event</a>
-        <a href="profile.html">Profile</a>
-        <a href="contact.html">contact</a>
-        <a href="faq.html">Faq</a>
-        <a href="feedback.html">Feedback</a>
-        <a href="admin.html">Admin</a>
+        <a href="#">Home</a>
+        <a href="pages/about.html">About</a>
+        <a href="pages/register.html">Register</a>
+        <a href="pages/login.html">Login</a>
+        <a href="pages/dashboard.html">Dashboard</a>
+        <a href="pages/event.html">Event</a>
+        <a href="pages/profile.html">Profile</a>
+        <a href="pages/contact.html">Contact</a>
+        <a href="pages/faq.html">FAQ</a>
+        <a href="pages/feedback.html">Feedback</a>
+        <a href="pages/admin.html">Admin</a>
     </nav>
-    <main>
-        <secton>
-            <h2>
-                Welcome to StudentHub
-            </h2>
+
+    <section class="hero">
+        <h2>Welcome to StudentHub</h2>
+        <p>
+            StudentHub is a digital platform where students can register,
+            participate in events, manage their profile, and access academic
+            information from one place.
+        </p>
+
+        <a href="pages/register.html" class="btn">Get Started</a>
+    </section>
+
+    <section class="container">
+
+        <div class="card">
+            <h3>📢 Upcoming Workshop</h3>
             <p>
-                StudentHub is digital platform where student cam register,
-                paricpate in event,manage profile, and access acadmic information.
+                A Web Development Workshop will be conducted next week.
             </p>
-        </secton>
-        <article>
-            <h3>
-                Upcoming workshop
-            </h3>
+        </div>
+
+        <div class="card">
+    <h3>📌 Latest Notices</h3>
+
+    <ul class="notice-list">
+        <li>Lab Submission on Friday</li>
+        <li>Workshop Registration Open</li>
+        <li>Hackathon Next Month</li>
+    </ul>
+</div>
+
+        <div class="card">
+            <h3>👨‍🎓 Student Services</h3>
             <p>
-                A web Devpelopment workshop will be conducted next week.
+                Register for events, check notices, manage your profile,
+                and stay connected with your campus.
             </p>
-        </article>
-        <aside>
-            <h3>
-                Latest Notices
-            </h3>
-            <ul>
-                <li>Lab submission on friday</li>
-                <li>Workshop Registration Open</li>
-                <li>Hackethon Next month</li>
-            </ul>
-        </aside>
-    </main>
+        </div>
+
+    </section>
+
     <footer>
-        <p>&copy; 2026 StudentHub, All Rights Reserved</p>
+        <p>© 2026 StudentHub. All Rights Reserved.</p>
     </footer>
-    
+
 </body>
 </html>
