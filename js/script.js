@@ -1,216 +1,132 @@
-// ===============================
-// StudentHub - script.js
-// ===============================
+// ===========================
+// StudentHub JavaScript
+// ===========================
 
-// Welcome Message (only once per browser session)
-window.addEventListener("load", function () {
+// Sticky Navbar
+window.addEventListener("scroll", function () {
+    const navbar = document.querySelector("nav");
 
-    if (!sessionStorage.getItem("welcomeShown")) {
-
-        alert("🎓 Welcome to StudentHub!");
-
-        sessionStorage.setItem("welcomeShown", "true");
+    if (window.scrollY > 50) {
+        navbar.classList.add("sticky");
+    } else {
+        navbar.classList.remove("sticky");
     }
-
 });
 
-// ===============================
-// Register Form Validation
-// ===============================
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
 
-function validateRegister() {
+        const target = document.querySelector(this.getAttribute("href"));
 
-    let name = document.getElementById("name").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let phone = document.getElementById("phone").value.trim();
-    let password = document.getElementById("password").value;
-    let confirmPassword = document.getElementById("confirmPassword").value;
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    });
+});
 
-    if (name === "") {
-        alert("Please enter your name.");
-        return false;
-    }
-
-    if (email === "") {
-        alert("Please enter your email.");
-        return false;
-    }
-
-    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-
-    if (!email.match(emailPattern)) {
-        alert("Please enter a valid email.");
-        return false;
-    }
-
-    let phonePattern = /^[0-9]{10}$/;
-
-    if (!phone.match(phonePattern)) {
-        alert("Enter a valid 10-digit phone number.");
-        return false;
-    }
-
-    if (password.length < 6) {
-        alert("Password must be at least 6 characters.");
-        return false;
-    }
-
-    if (password !== confirmPassword) {
-        alert("Passwords do not match.");
-        return false;
-    }
-
-    alert("Registration Successful!");
-
-    return true;
-}
-
-// ===============================
-// Login Validation
-// ===============================
-
-function validateLogin() {
-
-    let username = document.getElementById("loginEmail").value.trim();
-    let password = document.getElementById("loginPassword").value.trim();
-
-    if (username === "") {
-
-        alert("Enter your Email or Enrollment Number.");
-
-        return false;
-
-    }
-
-    if (password === "") {
-
-        alert("Enter your Password.");
-
-        return false;
-
-    }
-
-    alert("Login Successful!");
-
-    return true;
-
-}
-
-// ===============================
-// Contact Form
-// ===============================
-
-function sendMessage() {
-
-    alert("Your message has been sent successfully.");
-
-    return true;
-
-}
-
-// ===============================
-// Feedback Form
-// ===============================
-
-function submitFeedback() {
-
-    alert("⭐⭐⭐⭐⭐\n\nThank you for your feedback!");
-
-    return true;
-
-}
-
-// ===============================
-// Event Registration
-// ===============================
-
-function registerEvent(eventName) {
-
-    alert("You have successfully registered for:\n\n" + eventName);
-
-}
-
-// ===============================
 // Scroll To Top Button
-// ===============================
+const topBtn = document.createElement("button");
+topBtn.innerHTML = "⬆";
+topBtn.id = "topBtn";
+document.body.appendChild(topBtn);
 
-let topButton = document.createElement("button");
-
-topButton.innerHTML = "⬆";
-
-topButton.style.position = "fixed";
-topButton.style.bottom = "20px";
-topButton.style.right = "20px";
-topButton.style.padding = "10px 15px";
-topButton.style.display = "none";
-topButton.style.cursor = "pointer";
-topButton.style.border = "none";
-topButton.style.borderRadius = "10px";
-topButton.style.background = "#6c5ce7";
-topButton.style.color = "white";
-topButton.style.fontSize = "18px";
-
-document.body.appendChild(topButton);
+topBtn.style.position = "fixed";
+topBtn.style.bottom = "20px";
+topBtn.style.right = "20px";
+topBtn.style.width = "50px";
+topBtn.style.height = "50px";
+topBtn.style.border = "none";
+topBtn.style.borderRadius = "50%";
+topBtn.style.cursor = "pointer";
+topBtn.style.display = "none";
+topBtn.style.fontSize = "20px";
+topBtn.style.background = "#7c3aed";
+topBtn.style.color = "#fff";
+topBtn.style.boxShadow = "0 5px 15px rgba(0,0,0,0.3)";
+topBtn.style.zIndex = "999";
 
 window.addEventListener("scroll", function () {
 
-    if (document.documentElement.scrollTop > 200) {
-
-        topButton.style.display = "block";
-
+    if (window.scrollY > 250) {
+        topBtn.style.display = "block";
     } else {
-
-        topButton.style.display = "none";
-
+        topBtn.style.display = "none";
     }
 
 });
 
-topButton.onclick = function () {
+topBtn.onclick = function () {
 
     window.scrollTo({
-
         top: 0,
-
         behavior: "smooth"
-
     });
 
 };
 
-// ===============================
-// Digital Clock
-// ===============================
+// Fade Animation
+const observer = new IntersectionObserver(entries => {
 
-let clock = document.createElement("div");
+    entries.forEach(entry => {
 
-clock.style.position = "fixed";
-clock.style.top = "10px";
-clock.style.right = "20px";
-clock.style.background = "#6c5ce7";
-clock.style.color = "white";
-clock.style.padding = "8px 12px";
-clock.style.borderRadius = "8px";
-clock.style.fontWeight = "bold";
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
 
-document.body.appendChild(clock);
+    });
 
-function updateClock() {
+});
 
-    let now = new Date();
+document.querySelectorAll(".card, section").forEach(el => {
+    observer.observe(el);
+});
 
-    clock.innerHTML = now.toLocaleTimeString();
+// Counter Animation
+const counters = document.querySelectorAll(".counter");
+
+counters.forEach(counter => {
+
+    counter.innerText = "0";
+
+    const updateCounter = () => {
+
+        const target = +counter.getAttribute("data-target");
+        const count = +counter.innerText;
+
+        const increment = target / 100;
+
+        if (count < target) {
+
+            counter.innerText = Math.ceil(count + increment);
+
+            setTimeout(updateCounter, 20);
+
+        } else {
+
+            counter.innerText = target;
+
+        }
+
+    };
+
+    updateCounter();
+
+});
+
+// Mobile Menu
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuBtn) {
+
+    menuBtn.addEventListener("click", () => {
+
+        navLinks.classList.toggle("active");
+
+    });
 
 }
-
-setInterval(updateClock, 1000);
-
-updateClock();
-
-// ===============================
-// Current Date
-// ===============================
-
-console.log("Today's Date : " + new Date().toDateString());
-
-console.log("StudentHub Loaded Successfully");
