@@ -10,7 +10,27 @@
 }
 
 body{
-    background:linear-gradient(135deg,#f9f5ff,#efe6ff,#e7d7ff);
+    position:relative;
+    overflow-x:hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(99,102,241,0.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(139,92,246,0.25),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #e0e7ff,
+            #ede9fe
+        );
+
     color:#333;
     min-height:100vh;
 }
@@ -35,35 +55,94 @@ header p{
 
 /* Navigation */
 nav{
-    background:white;
+    position:relative;
+    z-index:10;
+
     display:flex;
     justify-content:center;
-    gap:30px;
-    padding:15px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
+    align-items:center;
 
+    gap:25px;
+
+    padding:16px 20px;
+
+    background:rgba(255,255,255,0.75);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.8);
+
+    box-shadow:
+        0 5px 25px rgba(80,60,140,0.10);
+}
 nav a{
+    position:relative;
+
     text-decoration:none;
-    color:#6c5ce7;
-    font-weight:bold;
-    transition:.3s;
+
+    color:#5b4a8a;
+
+    font-weight:600;
+
+    padding:8px 4px;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+nav a::after{
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    bottom:0;
+
+    width:0;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6c5ce7,
+            #8e44ad
+        );
+
+    border-radius:10px;
+
+    transform:translateX(-50%);
+
+    transition:
+        width 0.3s ease;
 }
 
+nav a:hover::after{
+    width:100%;
+}
 nav a:hover{
-    color:#8e44ad;
+    color:#6c5ce7;
+
+    transform:translateY(-2px);
 }
 
 /* Hero Section */
 .hero{
+    position:relative;
     text-align:center;
-    padding:70px 20px;
+    padding:90px 20px;
+    z-index:2;
+    animation:heroFade 1s ease-out;
 }
 
 .hero h2{
     color:#6c5ce7;
-    font-size:42px;
+    font-size:48px;
     margin-bottom:15px;
+    font-weight:700;
+    text-shadow:0 5px 20px rgba(108,92,231,0.2);
+    animation:titleSlide 1s ease-out;
 }
 
 .hero p{
@@ -82,23 +161,85 @@ nav a:hover{
 
 /* Cards */
 .card{
-    background:rgba(255,255,255,0.85);
-    backdrop-filter:blur(10px);
+    position:relative;
+
+    background:rgba(255,255,255,0.70);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.8);
+
     border-radius:20px;
-    padding:25px;
+
+    padding:30px;
+
     text-align:center;
-    box-shadow:0 8px 20px rgba(0,0,0,0.1);
-    transition:0.4s;
+
+    box-shadow:
+        0 10px 30px rgba(80,60,140,0.12);
+
+    overflow:hidden;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
 }
 
-.card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 12px 25px rgba(108,92,231,0.3);
+.card:hover {
+    transform: translateY(-12px) scale(1.03) !important;
+
+    box-shadow:
+        0 20px 45px rgba(108,92,231,0.25);
 }
 
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:80%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.45),
+            transparent
+        );
+
+    transform:skewX(-20deg);
+
+    transition:left 0.7s ease;
+
+    pointer-events:none;
+}
+
+.card:hover::before{
+    left:130%;
+}
 .card h3{
     color:#6c5ce7;
+
     margin-bottom:12px;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+.card:hover h3{
+    color:#8e44ad;
+
+    transform:translateY(-3px);
 }
 
 .card p{
@@ -236,25 +377,1383 @@ footer{
 /* ===========================
    Latest Notices
 =========================== */
+/* =========================================
+   MODERN NOTICE SECTION
+========================================= */
 
 .notice-list{
-    list-style: none;
-    padding: 0;
-    margin: 15px 0;
+    list-style:none;
+    padding:0;
+    margin:20px 0;
+    text-align:left;
 }
 
 .notice-list li{
-    background: #f5efff;
-    color: #5a3d8c;
-    margin: 12px 0;
-    padding: 14px;
-    border-radius: 10px;
-    border-left: 5px solid #8E44AD;
-    font-weight: 500;
-    transition: 0.3s;
+    position:relative;
+
+    background:rgba(255,255,255,0.65);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    color:#5a3d8c;
+
+    margin:12px 0;
+    padding:15px 18px 15px 22px;
+
+    border-radius:12px;
+
+    border-left:4px solid #8e44ad;
+
+    font-weight:500;
+
+    box-shadow:
+        0 5px 15px rgba(80,60,140,0.08);
+
+    overflow:hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
 }
 
+
+/* Moving Shine */
+
+.notice-list li::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:70%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.5),
+            transparent
+        );
+
+    transform:skewX(-20deg);
+
+    transition:left 0.6s ease;
+}
+
+
+.notice-list li:hover::before{
+    left:130%;
+}
+
+
+/* Hover */
+
 .notice-list li:hover{
-    background: #ede0ff;
-    transform: translateX(8px);
+    background:rgba(255,255,255,0.9);
+
+    transform:translateX(8px);
+
+    box-shadow:
+        0 10px 25px rgba(108,92,231,0.15);
+}
+
+
+/* Glowing Dot */
+
+.notice-list li::after{
+    content:"";
+
+    position:absolute;
+
+    left:8px;
+    top:50%;
+
+    width:6px;
+    height:6px;
+
+    background:#6c5ce7;
+
+    border-radius:50%;
+
+    transform:translateY(-50%);
+
+    box-shadow:
+        0 0 10px rgba(108,92,231,0.7);
+
+    animation:noticePulse 2s infinite;
+}
+
+
+/* Dot Animation */
+
+@keyframes noticePulse{
+
+    0%,100%{
+        transform:
+            translateY(-50%)
+            scale(1);
+
+        opacity:1;
+    }
+
+    50%{
+        transform:
+            translateY(-50%)
+            scale(1.6);
+
+        opacity:0.5;
+    }
+
+};
+
+/* =========================================
+   STUDENTHUB MODERN ANIMATED BACKGROUND
+========================================= */
+
+body {
+    position: relative;
+    overflow-x: hidden;
+    background: linear-gradient(
+        135deg,
+        #f9f5ff,
+        #efe6ff,
+        #e7d7ff
+    );
+}
+
+/* Background container */
+.animated-background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Animated circles */
+.background-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.45;
+}
+
+/* Circle 1 */
+.circle-1 {
+    width: 350px;
+    height: 350px;
+    background: #8e44ad;
+
+    top: -120px;
+    left: -100px;
+
+    animation: moveCircle1 12s infinite alternate ease-in-out;
+}
+
+/* Circle 2 */
+.circle-2 {
+    width: 300px;
+    height: 300px;
+    background: #6c5ce7;
+
+    top: 30%;
+    right: -100px;
+
+    animation: moveCircle2 15s infinite alternate ease-in-out;
+}
+
+/* Circle 3 */
+.circle-3 {
+    width: 250px;
+    height: 250px;
+    background: #b084f5;
+
+    bottom: -80px;
+    left: 25%;
+
+    animation: moveCircle3 14s infinite alternate ease-in-out;
+}
+
+/* Circle 4 */
+.circle-4 {
+    width: 200px;
+    height: 200px;
+    background: #d7b8ff;
+
+    top: 55%;
+    left: 45%;
+
+    animation: moveCircle4 10s infinite alternate ease-in-out;
+}
+
+
+/* =========================================
+   BACKGROUND ANIMATIONS
+========================================= */
+
+@keyframes moveCircle1 {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(180px, 120px) scale(1.2);
+    }
+
+    100% {
+        transform: translate(350px, 250px) scale(0.9);
+    }
+}
+
+
+@keyframes moveCircle2 {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-150px, 100px) scale(1.2);
+    }
+
+    100% {
+        transform: translate(-250px, -100px) scale(0.9);
+    }
+}
+
+
+@keyframes moveCircle3 {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(120px, -100px) scale(1.3);
+    }
+
+    100% {
+        transform: translate(-100px, -180px) scale(0.8);
+    }
+}
+
+
+@keyframes moveCircle4 {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-120px, 100px);
+    }
+
+    100% {
+        transform: translate(150px, -120px);
+    }
+}
+
+
+/* =========================================
+   MODERN CARD EFFECT
+========================================= */
+
+.card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    transition: all 0.4s ease;
+}
+
+
+.card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 40px rgba(108, 92, 231, 0.20);
+}
+
+
+/* =========================================
+   MODERN HERO
+========================================= */
+
+.hero {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h2 {
+    animation: heroText 1s ease;
+}
+
+.hero p {
+    animation: heroParagraph 1.3s ease;
+}
+
+
+/* Hero animation */
+
+@keyframes heroText {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes heroParagraph {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   MODERN BUTTON
+========================================= */
+
+.btn {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding: 13px 25px;
+
+    background: linear-gradient(
+        135deg,
+        #6c5ce7,
+        #8e44ad
+    );
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 10px 25px rgba(108, 92, 231, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+
+.btn:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 15px 30px rgba(108, 92, 231, 0.35);
+}
+
+
+/* =========================================
+   MODERN NAVIGATION
+========================================= */
+
+nav {
+    position: relative;
+    z-index: 10;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    background: rgba(255, 255, 255, 0.80);
+}
+
+
+/* =========================================
+   MODERN HEADER
+========================================= */
+
+header {
+    position: relative;
+    z-index: 10;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8e44ad,
+            #6c5ce7
+        );
+
+    animation: headerAnimation 1s ease;
+}
+
+
+@keyframes headerAnimation {
+
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .background-circle {
+        filter: blur(50px);
+    }
+
+    .circle-1 {
+        width: 220px;
+        height: 220px;
+    }
+
+    .circle-2 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .circle-3 {
+        width: 180px;
+        height: 180px;
+    }
+
+    .circle-4 {
+        width: 150px;
+        height: 150px;
+    }
+
+}/* =====================================================
+   STUDENTHUB - ULTRA MODERN ANIMATED BACKGROUND
+===================================================== */
+
+body {
+    position: relative;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(142, 68, 173, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(108, 92, 231, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #faf7ff,
+            #f0eaff,
+            #e8dcff
+        );
+}
+
+
+/* =====================================================
+   BACKGROUND CONTAINER
+===================================================== */
+
+.modern-bg {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =====================================================
+   ANIMATED GRID
+===================================================== */
+
+.grid-background {
+
+    position: absolute;
+
+    inset: -100px;
+
+    background-image:
+        linear-gradient(
+            rgba(108, 92, 231, 0.055) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(108, 92, 231, 0.055) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    transform: perspective(500px)
+               rotateX(60deg)
+               scale(1.5);
+
+    transform-origin: center bottom;
+
+    animation: gridMove 18s linear infinite;
+
+    opacity: 0.7;
+}
+
+
+@keyframes gridMove {
+
+    from {
+        background-position:
+            0 0,
+            0 0;
+    }
+
+    to {
+        background-position:
+            0 55px,
+            55px 0;
+    }
+
+}
+
+
+/* =====================================================
+   GLOWING ORBS
+===================================================== */
+
+.glow-orb {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    opacity: 0.45;
+
+    mix-blend-mode: multiply;
+}
+
+
+/* Orb 1 */
+
+.orb-1 {
+
+    width: 420px;
+    height: 420px;
+
+    background: #8e44ad;
+
+    top: -180px;
+    left: -150px;
+
+    animation:
+        orbOne 14s ease-in-out infinite alternate;
+}
+
+
+/* Orb 2 */
+
+.orb-2 {
+
+    width: 350px;
+    height: 350px;
+
+    background: #6c5ce7;
+
+    top: 20%;
+    right: -160px;
+
+    animation:
+        orbTwo 16s ease-in-out infinite alternate;
+}
+
+
+/* Orb 3 */
+
+.orb-3 {
+
+    width: 300px;
+    height: 300px;
+
+    background: #b084f5;
+
+    bottom: -150px;
+    left: 25%;
+
+    animation:
+        orbThree 18s ease-in-out infinite alternate;
+}
+
+
+/* Orb 4 */
+
+.orb-4 {
+
+    width: 250px;
+    height: 250px;
+
+    background: #d5b7ff;
+
+    top: 45%;
+    left: 45%;
+
+    animation:
+        orbFour 12s ease-in-out infinite alternate;
+}
+
+
+/* =====================================================
+   ORB ANIMATIONS
+===================================================== */
+
+@keyframes orbOne {
+
+    0% {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(180px, 150px)
+            scale(1.3);
+    }
+
+    100% {
+        transform:
+            translate(350px, 280px)
+            scale(0.9);
+    }
+
+}
+
+
+@keyframes orbTwo {
+
+    0% {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-170px, 130px)
+            scale(1.25);
+    }
+
+    100% {
+        transform:
+            translate(-300px, -100px)
+            scale(0.85);
+    }
+
+}
+
+
+@keyframes orbThree {
+
+    0% {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(150px, -130px)
+            scale(1.3);
+    }
+
+    100% {
+        transform:
+            translate(-120px, -220px)
+            scale(0.85);
+    }
+
+}
+
+
+@keyframes orbFour {
+
+    0% {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-130px, 100px)
+            scale(1.25);
+    }
+
+    100% {
+        transform:
+            translate(150px, -130px)
+            scale(0.8);
+    }
+
+}
+
+
+/* =====================================================
+   FLOATING PARTICLES
+===================================================== */
+
+.particles span {
+
+    position: absolute;
+
+    display: block;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #8e44ad;
+
+    opacity: 0.35;
+
+    box-shadow:
+        0 0 10px #8e44ad,
+        0 0 20px rgba(142, 68, 173, 0.4);
+
+    animation:
+        particleFloat 10s linear infinite;
+}
+
+
+/* Different positions */
+
+.particles span:nth-child(1) {
+    left: 8%;
+    top: 20%;
+    animation-delay: 0s;
+}
+
+.particles span:nth-child(2) {
+    left: 18%;
+    top: 70%;
+    animation-delay: 2s;
+}
+
+.particles span:nth-child(3) {
+    left: 30%;
+    top: 40%;
+    animation-delay: 4s;
+}
+
+.particles span:nth-child(4) {
+    left: 42%;
+    top: 80%;
+    animation-delay: 1s;
+}
+
+.particles span:nth-child(5) {
+    left: 55%;
+    top: 25%;
+    animation-delay: 3s;
+}
+
+.particles span:nth-child(6) {
+    left: 65%;
+    top: 65%;
+    animation-delay: 5s;
+}
+
+.particles span:nth-child(7) {
+    left: 75%;
+    top: 35%;
+    animation-delay: 2s;
+}
+
+.particles span:nth-child(8) {
+    left: 85%;
+    top: 75%;
+    animation-delay: 6s;
+}
+
+.particles span:nth-child(9) {
+    left: 92%;
+    top: 20%;
+    animation-delay: 3s;
+}
+
+.particles span:nth-child(10) {
+    left: 12%;
+    top: 90%;
+    animation-delay: 5s;
+}
+
+.particles span:nth-child(11) {
+    left: 50%;
+    top: 55%;
+    animation-delay: 7s;
+}
+
+.particles span:nth-child(12) {
+    left: 80%;
+    top: 90%;
+    animation-delay: 4s;
+}
+
+
+/* =====================================================
+   PARTICLE ANIMATION
+===================================================== */
+
+@keyframes particleFloat {
+
+    0% {
+
+        transform:
+            translateY(100vh)
+            translateX(0)
+            scale(0.5);
+
+        opacity: 0;
+
+    }
+
+    20% {
+        opacity: 0.5;
+    }
+
+    50% {
+
+        transform:
+            translateY(0)
+            translateX(40px)
+            scale(1);
+
+    }
+
+    80% {
+        opacity: 0.4;
+    }
+
+    100% {
+
+        transform:
+            translateY(-100vh)
+            translateX(-40px)
+            scale(0.5);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =====================================================
+   GLASS NAVIGATION
+===================================================== */
+
+nav {
+
+    background:
+        rgba(255, 255, 255, 0.72);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.8);
+
+    position: relative;
+
+    z-index: 10;
+
+}
+
+
+/* =====================================================
+   GLASS CARDS
+===================================================== */
+
+.card {
+
+    background:
+        rgba(255, 255, 255, 0.68);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow:
+        0 15px 35px
+        rgba(80, 50, 120, 0.10);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+
+}
+
+
+.card:hover {
+
+    transform:
+        translateY(-12px)
+        scale(1.02);
+
+    box-shadow:
+        0 25px 50px
+        rgba(108, 92, 231, 0.20);
+
+}
+
+
+/* =====================================================
+   MODERN HERO
+===================================================== */
+
+.hero {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.hero h2 {
+
+    animation:
+        heroTitle 1s ease-out;
+
+}
+
+
+.hero p{
+    color:#555;
+    font-size:18px;
+    max-width:800px;
+    margin:0 auto;
+    line-height:1.8;
+    animation:textSlide 1.3s ease-out;
+}
+
+
+@keyframes heroTitle {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(0.95);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes heroText {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   MODERN BUTTON
+===================================================== */
+
+.btn {
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding: 13px 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6c5ce7,
+            #8e44ad
+        );
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 12px 30px
+        rgba(108, 92, 231, 0.30);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.45),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left 0.6s ease;
+
+}
+
+
+.btn:hover::before {
+
+    left: 130%;
+
+}
+
+
+.btn:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(108, 92, 231, 0.40);
+
+}
+
+
+/* =====================================================
+   HEADER GLOW
+===================================================== */
+
+header {
+
+    position: relative;
+
+    z-index: 10;
+
+    overflow: hidden;
+
+}
+
+
+header::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    right: 5%;
+    top: -100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    filter:
+        blur(10px);
+
+    animation:
+        headerGlow 8s
+        ease-in-out
+        infinite alternate;
+
+}
+
+
+@keyframes headerGlow {
+
+    from {
+
+        transform:
+            translateX(0)
+            scale(1);
+
+    }
+
+    to {
+
+        transform:
+            translateX(-200px)
+            scale(1.5);
+
+    }
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .grid-background {
+        opacity: 0.35;
+    }
+
+    .glow-orb {
+        filter: blur(55px);
+    }
+
+    .orb-1 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .orb-2 {
+        width: 220px;
+        height: 220px;
+    }
+
+    .orb-3 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .orb-4 {
+        width: 170px;
+        height: 170px;
+    }
+
+}
+/* =========================================
+   MODERN GET STARTED BUTTON
+========================================= */
+
+.btn{
+    position:relative;
+
+    display:inline-block;
+
+    margin-top:28px;
+
+    padding:14px 30px;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6c5ce7,
+            #8e44ad
+        );
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 10px 25px rgba(108,92,231,0.30);
+
+    overflow:hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+.btn::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:80%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.5),
+            transparent
+        );
+
+    transform:skewX(-20deg);
+
+    transition:left 0.6s ease;
+}
+
+.btn:hover::before{
+    left:130%;
+}.btn:hover{
+    transform:
+        translateY(-5px)
+        scale(1.04);
+
+    box-shadow:
+        0 18px 40px rgba(108,92,231,0.40);
+}.btn:active{
+    transform:scale(0.96);
+}
+/* =========================================
+   MODERN CARD FLOATING ANIMATION
+========================================= */
+
+.container .card:nth-child(1) {
+    animation: cardFloat1 5s ease-in-out infinite;
+}
+
+.container .card:nth-child(2) {
+    animation: cardFloat2 6s ease-in-out infinite;
+}
+
+.container .card:nth-child(3) {
+    animation: cardFloat3 5.5s ease-in-out infinite;
+}
+
+
+/* Different floating movements */
+
+@keyframes cardFloat1 {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+}
+
+
+@keyframes cardFloat2 {
+
+    0%, 100% {
+        transform: translateY(-3px);
+    }
+
+    50% {
+        transform: translateY(7px);
+    }
+
+}
+
+
+@keyframes cardFloat3 {
+
+    0%, 100% {
+        transform: translateY(4px);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
 }
