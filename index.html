@@ -1,80 +1,474 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentHub</title>
+
+    <title>StudentHub | Digital Campus</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 </head>
+
 <body>
 
-    <header>
-        <h1>🎓 StudentHub</h1>
-        <p>Your Digital Campus Portal</p>
+    <!-- Animated Background -->
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+    <div class="background-shape shape-three"></div>
+
+
+    <!-- Header -->
+    <header class="modern-header">
+
+        <div class="logo-area">
+            <div class="logo-icon">🎓</div>
+
+            <div>
+                <h1>StudentHub</h1>
+                <span>Digital Campus Portal</span>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <a href="pages/login.html" class="login-btn">
+                Login
+            </a>
+
+            <a href="pages/register.html" class="register-btn">
+                Get Started
+            </a>
+        </div>
+
     </header>
 
-    <nav>
-        <a href="#">Home</a>
+
+    <!-- Navigation -->
+    <nav class="modern-nav">
+
+        <a href="index.html" class="active">Home</a>
         <a href="pages/about.html">About</a>
-        <a href="pages/register.html">Register</a>
-        <a href="pages/login.html">Login</a>
+        <a href="pages/event.html">Events</a>
         <a href="pages/dashboard.html">Dashboard</a>
-        <a href="pages/event.html">Event</a>
         <a href="pages/profile.html">Profile</a>
         <a href="pages/contact.html">Contact</a>
         <a href="pages/faq.html">FAQ</a>
-        <a href="pages/feedback.html">Feedback</a>
-        <a href="pages/admin.html">Admin</a>
+
     </nav>
 
-    <section class="hero">
-        <h2>Welcome to StudentHub</h2>
-        <p>
-            StudentHub is a digital platform where students can register,
-            participate in events, manage their profile, and access academic
-            information from one place.
-        </p>
 
-        <a href="pages/register.html" class="btn">Get Started</a>
-    </section>
+    <!-- Hero Section -->
+    <main>
 
-    <section class="container">
+        <section class="modern-hero">
 
-        <div class="card">
-            <h3>📢 Upcoming Workshop</h3>
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    🚀 Welcome to the Future of Campus
+                </div>
+
+                <h2>
+                    Everything Your
+                    <span>Campus Needs.</span>
+                    In One Place.
+                </h2>
+
+                <p>
+                    StudentHub brings students, events, notices,
+                    academic information and campus services together
+                    in one simple and powerful platform.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="pages/register.html" class="primary-btn">
+                        Get Started →
+                    </a>
+
+                    <a href="pages/about.html" class="secondary-btn">
+                        Explore StudentHub
+                    </a>
+
+                </div>
+
+                <div class="hero-users">
+
+                    <div class="user-icons">
+                        👨‍🎓 👩‍🎓 👨‍💻
+                    </div>
+
+                    <p>
+                        Built for students.
+                        Designed for campus life.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Dashboard Preview -->
+            <div class="dashboard-preview">
+
+                <div class="preview-header">
+
+                    <div>
+                        <small>Student Dashboard</small>
+                        <h3>Good Morning! 👋</h3>
+                    </div>
+
+                    <div class="preview-avatar">
+                        👤
+                    </div>
+
+                </div>
+
+
+                <div class="preview-grid">
+
+                    <div class="preview-card purple">
+                        <span>📚</span>
+                        <strong>Courses</strong>
+                        <small>6 Subjects</small>
+                    </div>
+
+                    <div class="preview-card blue">
+                        <span>📅</span>
+                        <strong>Events</strong>
+                        <small>4 Upcoming</small>
+                    </div>
+
+                    <div class="preview-card green">
+                        <span>📊</span>
+                        <strong>Attendance</strong>
+                        <small>Active</small>
+                    </div>
+
+                    <div class="preview-card orange">
+                        <span>📢</span>
+                        <strong>Notices</strong>
+                        <small>3 New</small>
+                    </div>
+
+                </div>
+
+
+                <div class="preview-notice">
+
+                    <div class="notice-icon">
+                        📢
+                    </div>
+
+                    <div>
+                        <strong>Latest Notice</strong>
+                        <p>Web Development Workshop Registration Open</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Statistics -->
+        <section class="stats-section">
+
+            <div class="stat-box">
+                <strong>10+</strong>
+                <span>Campus Services</span>
+            </div>
+
+            <div class="stat-box">
+                <strong>24/7</strong>
+                <span>Student Access</span>
+            </div>
+
+            <div class="stat-box">
+                <strong>100%</strong>
+                <span>Digital Platform</span>
+            </div>
+
+            <div class="stat-box">
+                <strong>1</strong>
+                <span>Unified Portal</span>
+            </div>
+
+        </section>
+
+
+        <!-- Features -->
+        <section class="features-section">
+
+            <div class="section-heading">
+
+                <span>POWERFUL FEATURES</span>
+
+                <h2>
+                    Everything you need,
+                    <span>right at your fingertips.</span>
+                </h2>
+
+                <p>
+                    StudentHub simplifies everyday campus activities
+                    and keeps everything organized in one place.
+                </p>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <div class="modern-card">
+
+                    <div class="feature-icon purple-icon">
+                        👤
+                    </div>
+
+                    <h3>Student Profile</h3>
+
+                    <p>
+                        Manage your personal information,
+                        academic details and profile.
+                    </p>
+
+                    <a href="pages/profile.html">
+                        Explore →
+                    </a>
+
+                </div>
+
+
+                <div class="modern-card">
+
+                    <div class="feature-icon blue-icon">
+                        📅
+                    </div>
+
+                    <h3>Campus Events</h3>
+
+                    <p>
+                        Discover workshops, hackathons,
+                        seminars and college activities.
+                    </p>
+
+                    <a href="pages/event.html">
+                        View Events →
+                    </a>
+
+                </div>
+
+
+                <div class="modern-card">
+
+                    <div class="feature-icon orange-icon">
+                        📢
+                    </div>
+
+                    <h3>Latest Notices</h3>
+
+                    <p>
+                        Stay updated with important announcements
+                        and college notifications.
+                    </p>
+
+                    <a href="pages/dashboard.html">
+                        View Notices →
+                    </a>
+
+                </div>
+
+
+                <div class="modern-card">
+
+                    <div class="feature-icon green-icon">
+                        📊
+                    </div>
+
+                    <h3>Academic Dashboard</h3>
+
+                    <p>
+                        Access courses, attendance,
+                        results and academic information.
+                    </p>
+
+                    <a href="pages/dashboard.html">
+                        Open Dashboard →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Notice Section -->
+        <section class="notice-section">
+
+            <div class="notice-content">
+
+                <span>LATEST UPDATES</span>
+
+                <h2>
+                    Stay connected with
+                    <span>your campus.</span>
+                </h2>
+
+                <p>
+                    Never miss important college announcements,
+                    events or academic updates.
+                </p>
+
+                <a href="pages/dashboard.html" class="primary-btn">
+                    View All Notices →
+                </a>
+
+            </div>
+
+
+            <div class="notice-list-modern">
+
+                <div class="notice-item">
+
+                    <div class="notice-number">
+                        01
+                    </div>
+
+                    <div>
+                        <h3>Web Development Workshop</h3>
+                        <p>
+                            Registration is now open for students.
+                        </p>
+                    </div>
+
+                    <span class="new-badge">
+                        NEW
+                    </span>
+
+                </div>
+
+
+                <div class="notice-item">
+
+                    <div class="notice-number">
+                        02
+                    </div>
+
+                    <div>
+                        <h3>Lab Submission</h3>
+                        <p>
+                            Lab submissions are due on Friday.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="notice-item">
+
+                    <div class="notice-number">
+                        03
+                    </div>
+
+                    <div>
+                        <h3>Hackathon 2026</h3>
+                        <p>
+                            Get ready for the upcoming campus hackathon.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Call To Action -->
+        <section class="cta-section">
+
+            <div>
+
+                <span>READY TO GET STARTED?</span>
+
+                <h2>
+                    Your campus.
+                    Your experience.
+                    <strong>One platform.</strong>
+                </h2>
+
+                <p>
+                    Join StudentHub and make your campus life simpler.
+                </p>
+
+            </div>
+
+            <a href="pages/register.html" class="cta-button">
+                Create Your Account →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="modern-footer">
+
+        <div class="footer-logo">
+
+            <h2>🎓 StudentHub</h2>
+
             <p>
-                A Web Development Workshop will be conducted next week.
+                Your Digital Campus Portal
             </p>
+
         </div>
 
-        <div class="card">
-    <h3>📌 Latest Notices</h3>
 
-    <ul class="notice-list">
-        <li>Lab Submission on Friday</li>
-        <li>Workshop Registration Open</li>
-        <li>Hackathon Next Month</li>
-    </ul>
-</div>
+        <div class="footer-links">
 
-        <div class="card">
-            <h3>👨‍🎓 Student Services</h3>
-            <p>
-                Register for events, check notices, manage your profile,
-                and stay connected with your campus.
-            </p>
+            <a href="pages/about.html">About</a>
+            <a href="pages/event.html">Events</a>
+            <a href="pages/contact.html">Contact</a>
+            <a href="pages/faq.html">FAQ</a>
+
         </div>
 
-    </section>
 
-    <footer>
-        <p>© 2026 StudentHub. All Rights Reserved.</p>
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 StudentHub. All Rights Reserved.
+            </p>
+
+            <p>
+                Built for students ❤️
+            </p>
+
+        </div>
+
     </footer>
-<<<<<<< HEAD
-    <script src="js/script.js"></script>
-=======
 
->>>>>>> 9965d813413d51a6be5774952c0b82a48ecc2c6c
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+
 </body>
+
 </html>
+```
+
+
